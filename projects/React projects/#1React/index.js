@@ -1,5 +1,6 @@
 
 
+
 //ReactDOM.render(<h1>Hello everyone!</h1>, document.getElementById('root'))
 
 //React code using ul and list items
@@ -54,3 +55,21 @@
 //     document.getElementById("root")
 // )
 
+
+const page = (
+    <div>
+        <img src ="download.png" alt="react logo" width="40px" height="40px" />
+        <h1>Fun Facts about React</h1>
+       
+        <ul>
+            <li>was first released in 2013</li>
+            <li>was originally created by Jordan Walke</li>
+            <li>has well over 100K stars on Github</li>
+            <li>is maintained by facebook</li>
+            <li>Powers thousand of enterprise apps , including mobile apps </li>
+        </ul>
+    </div>
+)
+
+// document.getElementById("root").append(JSON.stringify(page))
+ReactDOM.render(page, document.getElementById("root"))
