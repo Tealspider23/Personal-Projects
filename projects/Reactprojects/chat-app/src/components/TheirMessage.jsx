@@ -18,7 +18,8 @@ const TheirMessage =({lastMessage , message}) =>{
                          className="message-image"
                          style = {{marginLeft: isFirstMessageByUser ? '4px': '48px' }}
                         />
-               ):(
+               )
+               :(
                 <div className="message" style = {{float:'left', backgroundColor:'#CABCDC',marginLeft: isFirstMessageByUser ? '4px': '48px' }}>
                     {message.text}
                 </div>
