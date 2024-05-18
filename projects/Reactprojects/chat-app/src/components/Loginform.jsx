@@ -1,25 +1,30 @@
 import { useState } from "react"
 import axios from "axios";
 
-const handleSubmit = async (e) =>{
-    e.preventDefault();
-    
-    const authObject = {'Project-ID':"28a37c0e-f614-462c-af1f-4360fe5c3f89", 'User-Name' : username , 'User-Secret': password}
-    try {
-        await axios.get('https://api.chatengine.io/chats', {headers:authObject})
-        localStorage.setItem('username',username);
-        localStorage.setItem('password',password);
 
-        window.location.reload();
-    } catch (error) {
-        SetError('Oops , Incorrect Credentials')
-    }
-
-}
 
 const Loginform =() =>{
+   
     const [username,setUsername] = useState('');
     const [password,setPassword] = useState('');
+    const [error,setError] = useState('');
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        
+        const authObject = {'Project-ID':"28a37c0e-f614-462c-af1f-4360fe5c3f89", 'User-Name' : username , 'User-Secret': password}
+        try {
+            await axios.get('https://api.chatengine.io/chats', {headers:authObject})
+            localStorage.setItem('username',username);
+            localStorage.setItem('password',password);
+    
+            window.location.reload();
+        } catch (err) {
+            setError('Oops , Incorrect Credentials');
+        }
+    
+    }
+
     return(
         <div className="wrapper">
             <div className="form">
@@ -33,6 +38,7 @@ const Loginform =() =>{
                         </button>
 
                     </div>
+                    <h2 className="Error">{error}</h2>
 
 
                 </form>
@@ -41,5 +47,7 @@ const Loginform =() =>{
         </div>
     ) 
 }
+
+
 
 export default Loginform ;
