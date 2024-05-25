@@ -13,7 +13,7 @@ const MeetingTypeList = () => {
     const [meetingState,setmeetingState] = useState<'isScheduleMeeting'| 'isJoiningMeeting' | 'isInstantMeeting' | undefined>();
   
   const createMeeting = () =>{
-    
+
   }
   
     return (
@@ -23,7 +23,7 @@ const MeetingTypeList = () => {
         title ="New Meeting "
         description = "Start an Instant Meeting"
         handleClick={()=>
-        setmeetingState('isJoiningMeeting')}
+        setmeetingState('isInstantMeeting')}
         className = "bg-orange-1"
         />
         <HomeCard
